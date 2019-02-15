@@ -17,7 +17,10 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings  # loads settings
 from django.conf.urls.static import static  # serves to access media
+#from jobs.views import home  use that if only import few funcs
+import jobs.views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path("home/", jobs.views.home, name="home"),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
